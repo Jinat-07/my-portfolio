@@ -1,129 +1,335 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jinat Sahorior | Student Entrepreneur</title>
+    <title>Jinat Sahorior | Student Entrepreneur & Developer</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .gradient-text { background: linear-gradient(90deg, #2563eb, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body { font-family: 'Poppins', sans-serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); }
+        .text-gradient { background: linear-gradient(135deg, #2563eb, #9333ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .bg-gradient-custom { background: linear-gradient(135deg, #eff6ff, #faf5ff); }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-200">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="font-bold text-xl tracking-tight">JS.</span>
-            <div class="space-x-6 text-sm font-medium">
+    <nav class="glass-nav fixed w-full z-50 border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-bold text-2xl tracking-tighter text-slate-900">JS<span class="text-blue-600">.</span></a>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
                 <a href="#about" class="hover:text-blue-600 transition">About</a>
+                <a href="#experience" class="hover:text-blue-600 transition">Experience</a>
                 <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
                 <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
                 <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
             </div>
+            <a href="#contact" class="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition shadow-lg shadow-blue-200">Hire Me</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="max-w-5xl mx-auto px-6 py-20">
-        <div class="max-w-3xl">
-            <h1 class="text-5xl font-extrabold mb-6">Hi, I'm <span class="gradient-text">Jinat Sahorior</span></h1>
-            <p class="text-xl text-slate-600 leading-relaxed mb-8">
-                Student Entrepreneur & Aspiring Computer Science Engineer. I bridge the gap between technology and education through impactful digital solutions.
-            </p>
-            <div class="flex gap-4">
-                <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Get in Touch</a>
-                <a href="https://github.com" class="border border-slate-300 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition">View GitHub</a>
+    <section class="bg-gradient-custom min-h-screen flex items-center pt-20">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm mb-6 border border-blue-200">
+                    <i class="fas fa-sparkles mr-2"></i>Higher Secondary Student & Entrepreneur
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    Hi, I'm <br><span class="text-gradient">Jinat Sahorior</span>
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    Aspiring Computer Science Engineer bridging the gap between technology and education. I specialize in web development, digital creativity, and building AI-driven educational tools.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="bg-blue-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200 hover-lift">View My Work</a>
+                    <a href="#contact" class="bg-white text-slate-700 border border-slate-200 px-8 py-3.5 rounded-full font-semibold hover:bg-slate-50 transition hover-lift">Contact Me</a>
+                </div>
+            </div>
+            <!-- Profile Image Container -->
+            <div data-aos="fade-left" data-aos-duration="1000" class="flex justify-center md:justify-end">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-400 to-purple-400 rounded-full blur-2xl opacity-40 animate-pulse"></div>
+                    <!-- Replace 'profile.jpg' with your actual image file name once uploaded -->
+                    <img src="profile.jpg" alt="Jinat Sahorior" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white shadow-2xl">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Detailed About -->
-    <section class="bg-white py-16 border-y border-slate-200">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-2xl font-bold mb-6">Professional Profile</h2>
-            <p class="text-slate-600 leading-relaxed text-lg italic">
-                "I founded the Students' Progress Network (SPN EdTech) to provide digital resources and guidance to fellow students. I thrive at the intersection of technical problem-solving and community leadership, eager to build impactful AI-driven educational tools."
-            </p>
+    <!-- About Me -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">About Me</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="md:col-span-2 space-y-6 text-slate-600 text-lg leading-relaxed" data-aos="fade-right">
+                    <p>I am a passionate Higher Secondary student in the Science stream with a strong interest in computer science, digital creativity, and logical learning. I enjoy working on technology-related projects, designing creative content, and collaborating with other students.</p>
+                    <p>With a passion for bridging the gap between technology and education, I founded the <strong>Students' Progress Network (SPN EdTech)</strong> to provide digital resources and guidance. My expertise lies in web development and content creation, having built multiple platforms ranging from scholarship portals to comprehensive admission guides.</p>
+                    <p>I thrive at the intersection of technical problem-solving and community leadership, and I am eager to leverage my upcoming engineering journey to build impactful AI-driven tools.</p>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm" data-aos="fade-left">
+                    <h3 class="font-bold text-xl mb-6">Quick Facts</h3>
+                    <ul class="space-y-4 text-slate-600">
+                        <li><i class="fas fa-map-marker-alt text-blue-600 w-6"></i> Kamurdiar, Murshidabad</li>
+                        <li><i class="fas fa-graduation-cap text-blue-600 w-6"></i> Science Stream (H.S.)</li>
+                        <li><i class="fas fa-language text-blue-600 w-6"></i> Bengali, English, Hindi</li>
+                        <li><i class="fas fa-heart text-red-500 w-6"></i> Tech & Peer Learning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Initiatives Timeline -->
+    <section id="experience" class="py-24 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Initiatives & Experience</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+                
+                <!-- Timeline Item 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active" data-aos="fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-blue-600 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md z-10">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover-lift">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-bold text-lg text-slate-800">Students' Progress Network</h3>
+                            <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Jan 2023 - Present</span>
+                        </div>
+                        <p class="text-sm font-medium text-slate-500 mb-3">Founder</p>
+                        <p class="text-slate-600 text-sm">A student-led initiative focused on academic development, cultural activities, digital magazine creation, and peer collaboration among students.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active" data-aos="fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-purple-600 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md z-10">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover-lift">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-bold text-lg text-slate-800">Techno Digital Arts</h3>
+                            <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-2 py-1 rounded">Aug 2022 - Present</span>
+                        </div>
+                        <p class="text-sm font-medium text-slate-500 mb-3">Founder</p>
+                        <p class="text-slate-600 text-sm">A personal platform exploring technology and digital creativity. Includes cinematography, professional video/photo editing, websites, and self-learning projects.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active" data-aos="fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-green-600 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md z-10">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover-lift">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-bold text-lg text-slate-800">Adhyayan India</h3>
+                        </div>
+                        <p class="text-sm font-medium text-slate-500 mb-3">FTCA Teacher</p>
+                        <p class="text-slate-600 text-sm">Experience in teaching basic computer concepts, applied logic, and formatting digital content to junior students.</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="max-w-5xl mx-auto px-6 py-20">
-        <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Project 1 -->
-            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                <div class="text-blue-600 mb-4 text-2xl"><i class="fas fa-graduation-cap"></i></div>
-                <h3 class="text-xl font-bold mb-2">SPN EdTech</h3>
-                <p class="text-slate-600 mb-4">A comprehensive educational platform providing scholarship portals, admission guides, and digital resources for student success.</p>
-                <a href="https://www.spnedtech.in" class="text-blue-600 font-medium hover:underline">Visit Site →</a>
+    <section id="projects" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Featured Projects</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
             </div>
-            <!-- Project 2 -->
-            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                <div class="text-purple-600 mb-4 text-2xl"><i class="fas fa-camera-retro"></i></div>
-                <h3 class="text-xl font-bold mb-2">Techno Digital Arts</h3>
-                <p class="text-slate-600 mb-4">Innovation hub for cinematography, professional video/photo editing, and technical creative services.</p>
-                <span class="text-slate-400 text-sm font-medium italic">Creative Studio</span>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover-lift group" data-aos="zoom-in">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-graduation-cap text-6xl text-blue-300 group-hover:scale-110 transition duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3">SPN EdTech</h3>
+                        <p class="text-slate-600 mb-6">A comprehensive educational platform providing scholarship portals, admission guides, and digital resources for student success.</p>
+                        <div class="flex gap-2 mb-6 flex-wrap">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">Web Dev</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">Community</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">Education</span>
+                        </div>
+                        <a href="https://www.spnedtech.in" target="_blank" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center">
+                            Visit Live Site <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover-lift group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-camera-retro text-6xl text-purple-300 group-hover:scale-110 transition duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3">Techno Digital Arts Hub</h3>
+                        <p class="text-slate-600 mb-6">Innovation hub for cinematography, professional video/photo editing, and technical creative services built from the ground up.</p>
+                        <div class="flex gap-2 mb-6 flex-wrap">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">Graphic Design</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">Video Editing</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">Content</span>
+                        </div>
+                        <span class="text-slate-500 font-medium italic">Self-Initiated Platform</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills & Education -->
-    <section id="skills" class="bg-slate-100 py-20">
-        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16">
-            <div>
-                <h2 class="text-2xl font-bold mb-8">Technical Expertise</h2>
-                <div class="space-y-4">
+    <!-- Skills & Education Layout -->
+    <section id="skills" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+            
+            <!-- Skills -->
+            <div data-aos="fade-right">
+                <h2 class="text-3xl font-bold mb-4">Technical Skills</h2>
+                <div class="w-16 h-1 bg-blue-500 mb-10"></div>
+                
+                <div class="space-y-8">
                     <div>
-                        <span class="block text-sm font-bold text-slate-500 uppercase mb-2">Development</span>
-                        <p class="text-slate-700">HTML, CSS, JavaScript, C, C++, Python, Java (Basics)</p>
+                        <h4 class="text-slate-300 font-semibold mb-3"><i class="fas fa-code mr-2"></i> Programming & Web</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">C / C++</span>
+                            <span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">Python</span>
+                            <span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">Java (Basics)</span>
+                            <span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">HTML / CSS</span>
+                            <span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">JavaScript</span>
+                        </div>
                     </div>
                     <div>
-                        <span class="block text-sm font-bold text-slate-500 uppercase mb-2">AI & Productivity</span>
-                        <p class="text-slate-700">Google AI Studio Master, ChatGPT, Gemini, MS Office Suite</p>
+                        <h4 class="text-slate-300 font-semibold mb-3"><i class="fas fa-robot mr-2"></i> AI & Productivity</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">Google AI Studio Master</span>
+                            <span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">ChatGPT / Gemini</span>
+                            <span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">MS Word / Excel / PowerPoint</span>
+                        </div>
                     </div>
                     <div>
-                        <span class="block text-sm font-bold text-slate-500 uppercase mb-2">Design</span>
-                        <p class="text-slate-700">Canva Graphic Design, Photo & Video Editing</p>
+                        <h4 class="text-slate-300 font-semibold mb-3"><i class="fas fa-paint-brush mr-2"></i> Design & Misc</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">Canva Graphic Designer</span>
+                            <span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">Digital Content Formatting</span>
+                            <span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm">Community Management</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <h2 class="text-2xl font-bold mb-8">Education & Experience</h2>
+
+            <!-- Education -->
+            <div data-aos="fade-left">
+                <h2 class="text-3xl font-bold mb-4">Education</h2>
+                <div class="w-16 h-1 bg-blue-500 mb-10"></div>
+                
                 <div class="space-y-6">
-                    <div class="border-l-2 border-blue-600 pl-4">
-                        <h4 class="font-bold">FTCA Teacher</h4>
-                        <p class="text-sm text-slate-500">Adhyayan India</p>
+                    <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition duration-300">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-xl">Higher Secondary Education</h3>
+                            <span class="text-blue-400 font-medium text-sm">2018 - 2026</span>
+                        </div>
+                        <p class="text-slate-300 mb-1">Karimpur Jagannath High School (H.S.)</p>
+                        <p class="text-slate-400 text-sm"><i class="fas fa-flask text-xs mr-1"></i> Science Stream, Ongoing</p>
                     </div>
-                    <div class="border-l-2 border-blue-600 pl-4">
-                        <h4 class="font-bold">Higher Secondary Education</h4>
-                        <p class="text-sm text-slate-500">Karimpur Jagannath High School</p>
-                    </div>
-                    <div class="border-l-2 border-blue-600 pl-4">
-                        <h4 class="font-bold">Founder</h4>
-                        <p class="text-sm text-slate-500">SPN Community</p>
+                    
+                    <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition duration-300">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-xl">Primary Education</h3>
+                            <span class="text-blue-400 font-medium text-sm">2013 - 2017</span>
+                        </div>
+                        <p class="text-slate-300">Karimpur Sudha Smriti Sishu Niketan</p>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <footer id="contact" class="max-w-5xl mx-auto px-6 py-20 text-center">
-        <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
-        <p class="text-slate-600 mb-8">Open for collaborations and technical discussions.</p>
-        <div class="flex flex-wrap justify-center gap-6 mb-12">
-            <a href="mailto:sahoriorjinat4@gmail.com" class="text-slate-600 hover:text-blue-600 text-2xl transition"><i class="fas fa-envelope"></i></a>
-            <a href="https://linkedin.com/in/jinat-sahorior" class="text-slate-600 hover:text-blue-600 text-2xl transition"><i class="fab fa-linkedin"></i></a>
-            <a href="https://instagram.com/jinats._" class="text-slate-600 hover:text-pink-600 text-2xl transition"><i class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com/jinatsahorior" class="text-slate-600 hover:text-blue-800 text-2xl transition"><i class="fab fa-facebook"></i></a>
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-white pt-24 pb-12 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 mb-16">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl font-bold mb-4">Let's Build Something<br><span class="text-gradient">Together.</span></h2>
+                    <p class="text-slate-600 mb-8 text-lg">Whether it's a tech collaboration, educational initiative, or just a quick chat about AI, I'm always open to connecting.</p>
+                    
+                    <div class="space-y-4">
+                        <a href="mailto:sahoriorjinat4@gmail.com" class="flex items-center text-slate-600 hover:text-blue-600 transition group">
+                            <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-100 transition">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <span class="font-medium">sahoriorjinat4@gmail.com</span>
+                        </a>
+                        <a href="tel:+918512901646" class="flex items-center text-slate-600 hover:text-blue-600 transition group">
+                            <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-100 transition">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <span class="font-medium">+91 8512 90 1646</span>
+                        </a>
+                        <div class="flex items-center text-slate-600 group">
+                            <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-location-dot text-xl"></i>
+                            </div>
+                            <span class="font-medium">Kamurdiar, Murshidabad-742303</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" class="flex flex-col justify-center items-start md:items-end">
+                    <h3 class="text-xl font-bold mb-6">Social Profiles</h3>
+                    <div class="flex gap-4 mb-8">
+                        <a href="https://linkedin.com/in/jinat-sahorior" target="_blank" class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover-lift text-2xl">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://instagram.com/jinats._" target="_blank" class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 hover:bg-pink-600 hover:text-white transition-all duration-300 hover-lift text-2xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/jinatsahorior" target="_blank" class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 hover:bg-blue-800 hover:text-white transition-all duration-300 hover-lift text-2xl">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center pt-8 border-t border-slate-200 text-slate-500 text-sm">
+                <p>&copy; 2026 Jinat Sahorior. Built with passion & Vercel.</p>
+            </div>
         </div>
-        <p class="text-slate-400 text-sm">© 2026 Jinat Sahorior. Built with Vercel.</p>
     </footer>
 
+    <!-- AOS Script Initialization -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // whether animation should happen only once - while scrolling down
+            offset: 100, // offset (in px) from the original trigger point
+        });
+    </script>
 </body>
 </html>

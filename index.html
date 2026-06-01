@@ -583,6 +583,121 @@
         });
     });
 </script>
+
+    <div id="portfolio-spider" style="position: fixed; top: 0; left: 0; width: 28px; height: 28px; pointer-events: none; z-index: 9999; opacity: 0; transform: translate(-50%, -50%); transition: opacity 0.4s ease;">
+    <svg viewBox="0 0 100 100" style="width: 100%; height: 100%;">
+        <style>
+            .spider-leg {
+                stroke: #334155; /* Slate dark gray legs */
+                stroke-width: 5;
+                stroke-linecap: round;
+                fill: none;
+                transform-origin: 50px 55px;
+            }
+            /* Wiggle groups animate alternating legs only when moving */
+            .moving .leg-left-1 { animation: crawlLeft 0.12s ease-in-out infinite alternate; }
+            .moving .leg-left-2 { animation: crawlRight 0.12s ease-in-out infinite alternate; }
+            .moving .leg-right-1 { animation: crawlRight 0.12s ease-in-out infinite infinite alternate; }
+            .moving .leg-right-2 { animation: crawlLeft 0.12s ease-in-out infinite alternate; }
+
+            @keyframes crawlLeft {
+                0% { transform: rotate(-8deg); }
+                100% { transform: rotate(8deg); }
+            }
+            @keyframes crawlRight {
+                0% { transform: rotate(8deg); }
+                100% { transform: rotate(-8deg); }
+            }
+        </style>
+        
+        <path class="spider-leg leg-left-1" d="M 40,42 C 20,35 15,20 8,25" />
+        <path class="spider-leg leg-left-2" d="M 40,50 C 15,50 10,40 4,46" />
+        <path class="spider-leg leg-left-1" d="M 40,58 C 15,62 10,72 6,80" />
+        <path class="spider-leg leg-left-2" d="M 40,65 C 20,78 22,88 18,94" />
+        
+        <path class="spider-leg leg-right-2" d="M 60,42 C 80,35 85,20 92,25" />
+        <path class="spider-leg leg-right-1" d="M 60,50 C 85,50 90,40 96,46" />
+        <path class="spider-leg leg-right-2" d="M 60,58 C 85,62 90,72 94,80" />
+        <path class="spider-leg leg-right-1" d="M 60,65 C 80,78 78,88 82,94" />
+        
+        <circle cx="50" cy="58" r="15" fill="#1e293b" /> <circle cx="50" cy="36" r="9" fill="#0f172a" />  <circle cx="46" cy="33" r="1.5" fill="#3b82f6" />
+        <circle cx="54" cy="33" r="1.5" fill="#3b82f6" />
+    </svg>
+</div>
+
+<script>
+    (function() {
+        const spider = document.getElementById('portfolio-spider');
+        let currentX = window.innerWidth / 2;
+        let currentY = window.innerHeight / 2;
+        let targetX = currentX;
+        let targetY = currentY;
+        let angle = 0;
+        let isVisible = false;
+
+        function updateCoords(x, y) {
+            targetX = x;
+            targetY = y;
+            if (!isVisible) {
+                spider.style.opacity = '1';
+                isVisible = true;
+            }
+        }
+
+        // Desktop movement tracking
+        window.addEventListener('mousemove', (e) => {
+            updateCoords(e.clientX, e.clientY);
+        });
+
+        // Mobile touch tracking adjustments
+        // -20px offset keeps the spider climbing smoothly right ABOVE the finger setup, 
+        // ensuring your hand doesn't physically cover the artwork while scrolling!
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                updateCoords(e.touches[0].clientX, e.touches[0].clientY - 20);
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 0) {
+                updateCoords(e.touches[0].clientX, e.touches[0].clientY - 20);
+            }
+        }, { passive: true });
+
+        // Physics engine loop
+        function processSpiderPhysics() {
+            const dx = targetX - currentX;
+            const dy = targetY - currentY;
+            const distance = Math.hypot(dx, dy);
+
+            if (distance > 2) {
+                // Smooth tracking interpolation (0.07 handles organic friction)
+                currentX += dx * 0.07;
+                currentY += dy * 0.07;
+
+                // Rotational heading math (recalculates 360 direction angle map)
+                const targetAngle = Math.atan2(dy, dx) * 180 / Math.PI + 90;
+                
+                // Normalizes turning boundaries so it doesn't spin frantically on sharp shifts
+                let angleDiff = targetAngle - angle;
+                while (angleDiff < -180) angleDiff += 360;
+                while (angleDiff > 180) angleDiff -= 360;
+                angle += angleDiff * 0.2;
+
+                spider.classList.add('moving');
+            } else {
+                spider.classList.remove('moving');
+            }
+
+            // GPU-accelerated frame mapping
+            spider.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) rotate(${angle}deg)`;
+            
+            requestAnimationFrame(processSpiderPhysics);
+        }
+
+        requestAnimationFrame(processSpiderPhysics);
+    })();
+</script>
     
 </body>
 </html>
